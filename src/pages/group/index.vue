@@ -279,7 +279,8 @@ export default {
 /*  <!-- 内容区结束 --> */
 
 .content {
-  padding-top: 0.5rem;
+  padding-top: 0.5rem; 
+  padding-bottom:.5rem; 
   display: flex;
   flex-direction: column;
   /* flex: 1; */
@@ -290,6 +291,7 @@ export default {
   top: 0;
   right: 0;
   bottom: 0;
+
 }
 .content ul li {
   width: 100%;

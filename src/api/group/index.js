@@ -1,11 +1,11 @@
 import http from "@utils/request";
 
-export const goodsApi = (token)=>http({
+export const goodsApi = ()=>http({
     methods:"get",
-    url:"/yiqituan/tab_list",
-    data:{
-        token:token
-    }
+    url:"api/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20",
+    // data:{
+    //     page:page
+    // }
 })
     
 

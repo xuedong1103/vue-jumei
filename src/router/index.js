@@ -12,7 +12,7 @@ const router=new VueRouter({
     routes:[
         {
             path:"/",
-            redirect:"/jumei",
+            redirect:"/index",
         },
         jumei,
         group,
