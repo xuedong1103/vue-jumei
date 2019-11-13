@@ -10,6 +10,7 @@ server.interceptors.request.use((config)=>{
         config.params={...config.data};
 
     }
+    return config;
 }),(err)=>{
     releaseEvents.reject(err);
 }
@@ -23,4 +24,4 @@ server.interceptors.response.use((res)=>{
 
 
 
-
+export default server;
