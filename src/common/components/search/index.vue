@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import SearchSlider from "@common/search/searchSlider";
+import SearchSlider from "@common/components/search/searchSlider";
 export default {
     name:"search",
     components:{

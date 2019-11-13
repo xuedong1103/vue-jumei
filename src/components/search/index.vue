@@ -1,19 +1,22 @@
 <template>
     <div class="search">
-            <a class="page_title">
+            <router-link class="page_title" 
+           
+            tag="div" to="/search">  
                 <img class="searchIcon" src="https://f0.jmstatic.com/btstatic/h5/common/search_btn.png" />
                 <span>搜索商品 分类 功效</span>
-            </a>
+            </router-link>
             <img class="searchImg" src="https://f0.jmstatic.com/btstatic/h5/index/search_list2.png" @click="handleSearch()"/>
         </div>
 </template>
 
 <script>
 export default {
-  name: "search",
+  name: "Search",
   data(){
     return {
-      isShow:false
+      isShow:false,
+      path:"/search"
     }
   },
   created(){
@@ -27,7 +30,11 @@ export default {
       this.isShow=!this.isShow;
       this.$observer.$emit("handlelSearch",this.isShow);
       console.log(this.isShow)
-    }
+    },
+    // handleBtn(){
+    //   console.log(111)
+    //   this.$router.push("/search")
+    // }
   }
 };
 </script>

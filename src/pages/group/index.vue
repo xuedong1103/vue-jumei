@@ -223,7 +223,7 @@ export default {
   name: "Group",
   async created(){
     let data = await goodsApi();
-    console.log(data);
+    console.log(data,'group');
   }
 };
 </script>
@@ -280,6 +280,7 @@ export default {
 
 .content {
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
   /* flex: 1; */

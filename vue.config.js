@@ -4,17 +4,10 @@ module.exports={
     devServer:{
         proxy:{
             "/api":{
-<<<<<<< HEAD
                 target:"http://m.jumei.com",
                 changeOrigin:true,
                 pathRewrite:{
-                    '^/api':""
-=======
-                target:"http://s.h5.jumei.com",
-                changeOrigin:true,
-                pathRewrite:{
-                    "/^api/":""
->>>>>>> 8924597611f36a198ec74be3614cc50aba42b43e
+                     "^/api/":""
                 }
             }
         }

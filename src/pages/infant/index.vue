@@ -91,13 +91,13 @@
                 <img src="http://f0.jmstatic.com/btstatic/h5/common/icon_title.png" />
                 <span>疯抢专场 早10点上新</span>
             </div>
-            <div class="list_new">
+            <div class="list_new" v-for="(item,index) in goodsList" :key="index">
                <figure>
-                   <img src="http://mp6.jmstatic.com//jmstore/image/000/008/8553_std/5dbe7cf208fd9_1024_512.jpg?1572832489&imageView2/2/w/640/q/90">
+                   <img :src='item.image_url_set.main["320"]'>
                </figure>
                <figcaption>
                    <div class="new_title">
-                        <h2>澳兰黛品牌专场</h2>
+                        <h2>{{item.title}}</h2>
                         <div class="activity_time">
                             <span>仅剩</span>
                             <span>01天</span>
@@ -109,7 +109,7 @@
                </figcaption>
             </div>
 
-            <div class="list_new">
+            <!-- <div class="list_new">
                 <figure>
                     <img src="http://mp6.jmstatic.com//jmstore/image/000/008/8553_std/5dbe7cf208fd9_1024_512.jpg?1572832489&imageView2/2/w/640/q/90">
                 </figure>
@@ -125,19 +125,31 @@
                     </div>
                     <div class="new_img"><img src="http://p0.jmstatic.com/brand/logo_180/21958.jpg"></div>
                 </figcaption>
-             </div>
+             </div> -->
         </section>
   </div>
 </template>
 
 
 <script>
-import NavSlider from "@common/navSlider"
+import NavSlider from "@common/components/navSlider"
+import {infantApi} from "@api/infant";
 export default {
+    data(){
+      return {
+        goodsList:[]
+      }
+    },
     name:"infant",
     components:{
       NavSlider
-    }
+    },
+    async created(){
+    let data =  await infantApi();
+    this.goodsList= data.item_list ;
+    //console.log(data);
+    console.log(this.goodsList);
+  },
 };
 </script>
 
@@ -378,7 +390,7 @@ header {
   align-items: center;
 }
 .infantPage .list_item .list_new figcaption .new_title {
-  width: 1.3rem;
+  width: 2rem;
   height: 100%;
   box-sizing: border-box;
   padding: 0.1rem 0.15rem;
@@ -396,6 +408,7 @@ header {
 .infantPage .list_item .list_new figcaption .new_title h2 {
   font-size: 0.12rem;
   font-weight: normal;
+  text-align:left;
 }
 .infantPage .list_item .list_new figcaption .new_img {
   width: 0.7rem;

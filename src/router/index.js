@@ -4,7 +4,8 @@ import cart from "./cart";
 import group from "./group"
 import jumei from "./jumei"
 import infant from "./infant"
-// import search from "./search"
+import search from "./search"
+
 Vue.use(VueRouter);
 
 const router=new VueRouter({
@@ -12,7 +13,7 @@ const router=new VueRouter({
     routes:[
         {
             path:"/",
-            redirect:"/jumei",
+            redirect:"/index",
         },
         jumei,
         group,
@@ -26,7 +27,8 @@ const router=new VueRouter({
             },
             component:_=>import("@pages/mine")
         },
-        infant
+        infant,
+        search
     ]
 });
 

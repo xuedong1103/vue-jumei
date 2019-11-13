@@ -1,8 +1,10 @@
-// export default {
-//     path:"/search",
-//     name:'name',
-//     meta:{
-//         flag:true,
-//         requireAuth:false
-//     }
-// }
+export default {
+    path: "/search",
+    name: 'search',
+    component: _ =>import("@pages/search"),
+    meta: {
+        flag: true,
+        requireAuth: false
+    }
+}
+

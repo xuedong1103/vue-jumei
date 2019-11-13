@@ -32,24 +32,24 @@
 import {jumeiindexApi} from "@api/jumei"
 export default {
     name:"GoodList",
-    data(){
-        return {
-            GoodsList:[]
-        }
-    },
-    created(){
-        this.handleGetgoodList();
+    // data(){
+    //     return {
+    //         GoodsList:[]
+    //     }
+    // },
+    // created(){
+    //     this.handleGetgoodList();
         
-    },
-    activated(){
-        // this.movieList = JSON.parse(sessionStorage.getItem("movieList"))
-    },
-    methods:{
-        async handleGetgoodList(){
-             let data = await jumeiindexApi ();
-             console.log(data);
-        }
-    }
+    // },
+    // activated(){
+    //     // this.movieList = JSON.parse(sessionStorage.getItem("movieList"))
+    // },
+    // methods:{
+    //     async handleGetgoodList(){
+    //          let data = await jumeiindexApi ();
+    //          console.log(data);
+    //     }
+    // }
 
 }
 </script>

@@ -7,8 +7,10 @@
             </a>
             <img class="searchImg" src="https://f0.jmstatic.com/btstatic/h5/index/search_list2.png" />
     </div>-->
-
-    <Search />
+   
+        <Search/>
+ 
+    
 
     <!-- <header>
             <div>
@@ -88,37 +90,33 @@
                 </div>
             </a>
     </section> -->
-    <GoodList/>
+    <!-- <GoodList/> -->
     <!-- 搜索页 -->
-    <transition name="searchSlider">
+    <!-- <transition name="searchSlider">
       <SearchPage v-if="isShow"/>
-    </transition>
+    </transition> -->
   </div>
 </template>
 
 <script>
-import NavSlider from "@common/navSlider";
+import NavSlider from "@common/components/navSlider";
 import Search from "@components/search";
-import SearchPage from "@common/search";
-import GoodList from "@components/indexItem"
+import SearchPage from "@common/components/search";
+import GoodList from "@components/indexItem";
+import {jumeiindexApi} from "@api/jumei";
 export default {
-  name: "Gumei",
-  components: {
+  name: "Jumei",
+  
+async created(){
+    let data =  await jumeiindexApi();
+       console.log(data,'index');
+  },
+    
+components: {
     NavSlider,
     Search,
     SearchPage,
     GoodList
-  },
-  data() {
-    return {
-      isShow: false
-    };
-  },
-  created(){
-      this.$observer.$on("handleSearch",(params)=>{
-          this.isShow=params;
-          console.log(2);
-      })
   },
   methods:{
       
