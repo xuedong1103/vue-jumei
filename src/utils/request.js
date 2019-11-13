@@ -36,6 +36,7 @@ server.interceptors.request.use((config)=>{
     if(config.method == "get"){
         config.params = {...config.data};
     }
+<<<<<<< HEAD
     config.headers["content-type"] = "applicetion/json";
     //config.headers["content-type"] = "applicetion/json";
     //config.headers["token"] = "";
@@ -46,6 +47,12 @@ server.interceptors.request.use((config)=>{
 
 
 //响应拦截
+=======
+    return config;
+}),(err)=>{
+    releaseEvents.reject(err);
+}
+>>>>>>> 8924597611f36a198ec74be3614cc50aba42b43e
 server.interceptors.response.use((res)=>{
     if(res.status == 200){
         return res.data;
@@ -56,4 +63,7 @@ server.interceptors.response.use((res)=>{
 
 
 export default server;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8924597611f36a198ec74be3614cc50aba42b43e
