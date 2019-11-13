@@ -4,8 +4,11 @@ module.exports={
     devServer:{
         proxy:{
             "/api":{
-                target:"http://39.97.33.178",
-                changeOrigin:true
+                target:"http://m.jumei.com",
+                changeOrigin:true,
+                pathRewrite:{
+                    '^/api':""
+                }
             }
         }
     },
@@ -26,3 +29,5 @@ module.exports={
         }
     }
 }
+
+//http://m.jumei.com/index/ajaxDealactList?card_id=4057&client_v=1&page=2&platform=wap&type=formal&page_key=1573602360

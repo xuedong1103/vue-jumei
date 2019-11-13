@@ -1,13 +1,16 @@
 <template>
-        <div class="index">
-        <div class="search">
-            <a class="page_title">
+  <div class="index">
+    <!-- <div class="search">
+            <a class="page_title"">
                 <img class="searchIcon" src="https://f0.jmstatic.com/btstatic/h5/common/search_btn.png" />
                 <span>搜索商品 分类 功效</span>
             </a>
             <img class="searchImg" src="https://f0.jmstatic.com/btstatic/h5/index/search_list2.png" />
-        </div>
-        <header>
+    </div>-->
+
+    <Search />
+
+    <!-- <header>
             <div>
                 <span>首页</span>
                 <span>极速免税店</span>
@@ -16,12 +19,16 @@
                 <span>名品特卖</span>
                 <span>名品特卖</span>
             </div>
-        </header>
+    </header> -->
+
+    <router-view></router-view>
+        <NavSlider/>
         <nav>
             <span>今日10点上新</span>
             <span>明日10店预告</span>
         </nav>
-        <section>
+
+    <!-- <section>
             <a>
                 <div>
                     <img
@@ -80,69 +87,66 @@
                     </div>
                 </div>
             </a>
-        </section>
-    </div>
+    </section> -->
+    <GoodList/>
+    <!-- 搜索页 -->
+    <transition name="searchSlider">
+      <SearchPage v-if="isShow"/>
+    </transition>
+  </div>
 </template>
 
 <script>
+import NavSlider from "@common/navSlider";
+import Search from "@components/search";
+import SearchPage from "@common/search";
+import GoodList from "@components/indexItem"
 export default {
-    name:"Gumei",
-    
-}
+  name: "Gumei",
+  components: {
+    NavSlider,
+    Search,
+    SearchPage,
+    GoodList
+  },
+  data() {
+    return {
+      isShow: false
+    };
+  },
+  created(){
+      this.$observer.$on("handleSearch",(params)=>{
+          this.isShow=params;
+          console.log(2);
+      })
+  },
+  methods:{
+      
+  }
+};
 </script>
 
 <style>
-      .index {
-            overflow-y: auto;
-            width:100%;
-            
-            position:absolute;
-            left:0;
-            top:0;
-            right:0;
-            bottom:0;
-            padding-bottom:0.42rem;
-        }
-       .index .search {
-            height: 0.45rem;
-            background: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.searchSlider-enter,
+.searchList-leave-to {
+  right: -2rem;
+}
+.searchSlider-enter-active,
+.searchList-leave-active {
+  transition: all 0.3s;
+}
+.index {
+  overflow-y: auto;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 0.42rem;
+}
 
-       .index .search .page_title {
-            width: 2.6rem;
-            height: 0.28rem;
-            background: #F5F5F5;
-            margin-left: 0.12rem;
-            border-radius: 0.2rem;
-            position: relative;
-            display: flex;
-            align-items: center;
-            color: #999;
-        }
-
-        .index .search .page_title .searchIcon {
-            width: 0.14rem;
-            height: 0.14rem;
-            position: absolute;
-            left: 0.72rem;
-        }
-
-       .index .search .searchImg {
-            width: 0.21rem;
-            height: 0.15rem;
-            margin-right: 0.1rem
-        }
-
-       .index .search .page_title span {
-            font-size: 0.12rem;
-            color: #999;
-            margin-left: 1rem;
-        }
-
-       .index header {
+/* .index header {
             height: 0.36rem;
             -background: green;
         }
@@ -159,90 +163,23 @@ export default {
         .index header span {
             padding: 0 0.15rem;
             color: #666;
-        }
+        } */
 
-        .index nav {
-            width: 100%;
-            height: 0.4rem;
-            font-size: 0.12rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.index nav {
+  width: 100%;
+  height: 0.4rem;
+  font-size: 0.12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        .index nav span {
-            width: 50%;
-            height: 0.4rem;
-            text-align: center;
-            line-height: 0.4rem;
-            color: #666;
-        }
+.index nav span {
+  width: 50%;
+  height: 0.4rem;
+  text-align: center;
+  line-height: 0.4rem;
+  color: #666;
+}
 
-        main section {
-            width: 100%;
-            height: 1.3rem;
-            background: hotpink;
-        }
-
-        .index section div {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .index section div img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .index section .product_item .product_img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .index section .product_item .product_content {
-            width: 50%;
-            margin: 0 0.1rem 0 1.4rem;
-            display: flex;
-            flex-direction: column;
-            font-size: 0.12rem;
-            color: #333;
-        }
-
-        .index section .product_item .product_content .product_name {
-            font-size: 0.12rem;
-            margin: 0.12rem 0 0.05rem;
-        }
-
-        .index section .product_item .product_content .product_price {
-            margin-top: 0.3rem;
-            line-height: 0.2rem;
-            height: 0.2rem;
-
-        }
-
-        .index section .product_item .product_content .product_price .newPrice {
-            color: #fe4070;
-        }
-
-        .index section .product_item .product_content .product_price .newPrice b {
-            font-size: 0.16rem;
-            color: #fe4070;
-            font-weight: normal;
-        }
-
-        .index section .product_item .product_content .product_price .oldPrice {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 0.12rem;
-        }
-
-        .index section .product_item .product_content .product_comment {
-            font-size: 0.1rem;
-            line-height: 0.12rem;
-            color: #999;
-        }
 </style>

@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import cart from "./cart";
 import group from "./group"
 import jumei from "./jumei"
+import infant from "./infant"
+// import search from "./search"
 Vue.use(VueRouter);
 
 const router=new VueRouter({
@@ -24,6 +26,7 @@ const router=new VueRouter({
             },
             component:_=>import("@pages/mine")
         },
+        infant
     ]
 });
 
