@@ -95,6 +95,7 @@
     <!-- <transition name="searchSlider">
       <SearchPage v-if="isShow"/>
     </transition> -->
+    <!-- <SearchSlider/> -->
   </div>
 </template>
 
@@ -104,8 +105,14 @@ import Search from "@components/search";
 import SearchPage from "@common/components/search";
 import GoodList from "@components/indexItem";
 import {jumeiindexApi} from "@api/jumei";
+
 export default {
   name: "Jumei",
+  data(){
+     return {
+
+     }
+  },
   
 async created(){
     let data =  await jumeiindexApi();
@@ -116,7 +123,7 @@ components: {
     NavSlider,
     Search,
     SearchPage,
-    GoodList
+    GoodList,
   },
   methods:{
       

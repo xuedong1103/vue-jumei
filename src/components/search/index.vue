@@ -1,12 +1,11 @@
 <template>
     <div class="search">
             <router-link class="page_title" 
-           
             tag="div" to="/search">  
                 <img class="searchIcon" src="https://f0.jmstatic.com/btstatic/h5/common/search_btn.png" />
                 <span>搜索商品 分类 功效</span>
             </router-link>
-            <img class="searchImg" src="https://f0.jmstatic.com/btstatic/h5/index/search_list2.png" @click="handleSearch()"/>
+            <img class="searchImg" src="https://f0.jmstatic.com/btstatic/h5/index/search_list2.png"/>
         </div>
 </template>
 
@@ -15,26 +14,14 @@ export default {
   name: "Search",
   data(){
     return {
-      isShow:false,
-      path:"/search"
+     
     }
   },
   created(){
-    this.$observer.$on("handleSearch",(params)=>{
-      this.isShow=params;
-      console.log(3);
-    })
+   
   },
   methods:{
-    handleSearch(){
-      this.isShow=!this.isShow;
-      this.$observer.$emit("handlelSearch",this.isShow);
-      console.log(this.isShow)
-    },
-    // handleBtn(){
-    //   console.log(111)
-    //   this.$router.push("/search")
-    // }
+    
   }
 };
 </script>

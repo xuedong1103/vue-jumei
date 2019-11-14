@@ -3,7 +3,7 @@ export default {
     name: 'search',
     component: _ =>import("@pages/search"),
     meta: {
-        flag: true,
+        flag: false,
         requireAuth: false
     }
 }

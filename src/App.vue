@@ -1,8 +1,15 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     <router-view></router-view>
     <!-- <TabBar v-if="$route.meta.flag" /> -->
     <TabBar />
+=======
+    <router-view>
+    </router-view>
+    <TabBar v-if="$route.meta.flag" />
+    <!-- <TabBar /> -->
+>>>>>>> xuedong
   </div>
 </template>
 
@@ -24,6 +31,17 @@ export default {
 
 
 <style>
+<<<<<<< HEAD
+=======
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  height:100%;
+}
+>>>>>>> xuedong
 * {
   margin: 0;
   padding: 0;
