@@ -44,7 +44,7 @@ export default {
           id:1,
           title:"拼团",
           img:"http://p12.jmstatic.com/mcms/b51a66ca3ddb31ec0edbd67ea68f7589.png",
-          path: "/group"
+          path: "/group" //详情页测试
         },
         {
           id:2,

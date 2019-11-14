@@ -49,155 +49,40 @@
     <!-- 内容区开始 -->
     <div class="content">
       <ul>
-        <router-link tag="li" to="/group/detial">
+        <router-link
+          tag="li"
+          :to="'/detail/'+item.item_id"
+         
+          v-for="(item,index) in goodslist"
+          :key="index"
+        >
           <a href>
             <div class="goods">
-              <img
-                src="http://mp6.jmstatic.com/product/005/039/5039820_std/5039820_1000_1000.jpg?v=1570603982&imageView2/2/w/440/q/90"
-                alt
-              />
+              <img :src="item.image" alt />
             </div>
             <div class="people-number">
-              <span>1条评论</span>
+              <span>{{item.buyer_number_text}}</span>
             </div>
-            <div class="goods-topsmall">
-              <span>[2人团]</span>【手机专享】【2件装】花王婴儿纸尿裤L54片
+            <div class="goods-top">
+              <span>{{item.group_name_tag}}</span>
+              {{item.medium_name}}
             </div>
             <div class="goods-middle"></div>
             <div class="goods-foot">
               <div>
-                <span>¥166</span>
-                <span>单买价¥252</span>
+                <span>{{item.jumei_price}}</span>
+                <span>{{item.single_price}}</span>
               </div>
               <span>去开团</span>
             </div>
           </a>
         </router-link>
-        <li>
-          <a href>
-            <div class="goods">
-              <img
-                src="http://mp6.jmstatic.com/product/004/993/4993236_std/4993236_1000_1000.jpg?v=1566826023&imageView2/2/w/440/q/90"
-                alt
-              />
-            </div>
-            <div class="people-number">
-              <span>1条评论</span>
-            </div>
-            <div class="goods-topsmall">
-              <span>[2人团]</span>【手机专享】【2件装】花王婴儿纸尿裤L54片
-            </div>
-            <div class="goods-middle"></div>
-            <div class="goods-foot">
-              <div>
-                <span>¥166</span>
-                <span>单买价¥252</span>
-              </div>
-              <span>去开团</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href>
-            <div class="goods">
-              <img
-                src="http://mp6.jmstatic.com/product/004/929/4929990_std/4929990_1000_1000.jpg?v=1561344977&imageView2/2/w/440/q/90"
-                alt
-              />
-            </div>
-            <div class="people-number">
-              <span>1条评论</span>
-            </div>
-            <div class="goods-topsmall">
-              <span>[2人团]</span>【手机专享】AHC B5透明质酸神仙水
-            </div>
-            <div class="goods-middle"></div>
-            <div class="goods-foot">
-              <div>
-                <span>¥166</span>
-                <span>单买价¥252</span>
-              </div>
-              <span>去开团</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href>
-            <div class="goods">
-              <img
-                src="http://mp6.jmstatic.com/product/005/039/5039820_std/5039820_1000_1000.jpg?v=1570603982&imageView2/2/w/440/q/90"
-                alt
-              />
-            </div>
-            <div class="people-number">
-              <span>1条评论</span>
-            </div>
-            <div class="goods-topsmall">
-              <span>[2人团]</span>【手机专享】【2件装】花王婴儿纸尿裤L54片
-            </div>
-            <div class="goods-middle"></div>
-            <div class="goods-foot">
-              <div>
-                <span>¥166</span>
-                <span>单买价¥252</span>
-              </div>
-              <span>去开团</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href>
-            <div class="goods">
-              <img
-                src="http://mp6.jmstatic.com/product/004/993/4993236_std/4993236_1000_1000.jpg?v=1566826023&imageView2/2/w/440/q/90"
-                alt
-              />
-            </div>
-            <div class="people-number">
-              <span>1条评论</span>
-            </div>
-            <div class="goods-topsmall">
-              <span>[2人团]</span>【手机专享】【2件装】花王婴儿纸尿裤L54片
-            </div>
-            <div class="goods-middle"></div>
-            <div class="goods-foot">
-              <div>
-                <span>¥166</span>
-                <span>单买价¥252</span>
-              </div>
-              <span>去开团</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href>
-            <div class="goods">
-              <img
-                src="http://mp6.jmstatic.com/product/004/929/4929990_std/4929990_1000_1000.jpg?v=1561344977&imageView2/2/w/440/q/90"
-                alt
-              />
-            </div>
-            <div class="people-number">
-              <span>1条评论</span>
-            </div>
-            <div class="goods-topsmall">
-              <span>[2人团]</span>【手机专享】AHC B5透明质酸神仙水
-            </div>
-            <div class="goods-middle"></div>
-            <div class="goods-foot">
-              <div>
-                <span>¥166</span>
-                <span>单买价¥252</span>
-              </div>
-              <span>去开团</span>
-            </div>
-          </a>
-        </li>
       </ul>
+      <div class="tip">已到当前页面最底部，看看其他页面吧~</div>
     </div>
     <!-- 内容区结束 -->
     <!-- 底部开始 -->
-    <div class="footer">
+    <!-- <div class="footer">
       <ul>
         <a>
           <em class="iconfont icon-shouye"></em> 首页
@@ -212,18 +97,37 @@
           <em class="iconfont icon-wode"></em> 我的
         </a>
       </ul>
-    </div>
+    </div>-->
+     <!-- +'/'+item.medium_name+'/'+item.buyer_number_text+'/'+item.group_name_tag+'/'+item.jumei_price+'/'+item.single_price  -->
     <!-- 底部结束 -->
   </div>
 </template>
 
 <script>
-import {goodsApi} from "@api/group";
+import { goodsApi } from "@api/group";
 export default {
   name: "Group",
+<<<<<<< HEAD
   async created(){
     let data = await goodsApi();
     console.log(data,'group');
+=======
+  data() {
+    return {
+      goodslist: []
+    };
+  },
+  created() {
+    this.handleGetGoodsList();
+    
+  },
+  methods: {
+    async handleGetGoodsList() {
+      let data = await goodsApi();
+      this.goodslist = data.data;
+      console.log(this.goodslist);
+    }
+>>>>>>> 9f93743fefbd5d5e5f9036042e588472e88d1584
   }
 };
 </script>
@@ -254,10 +158,11 @@ export default {
 
 .header ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
   white-space: nowrap;
 }
 
@@ -272,7 +177,7 @@ export default {
 .header ul li a {
   /* border-bottom: 2px solid #fe4070; */
   padding: 0.16rem 0;
-  font-size: 0.14rem;
+  font-size: 0.15rem;
   font-weight: 500;
 }
 
@@ -283,7 +188,6 @@ export default {
   padding-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
-  /* flex: 1; */
   position: absolute;
   background: #eee;
   overflow: auto;
@@ -291,7 +195,6 @@ export default {
   top: 0;
   right: 0;
   bottom: 0;
-
 }
 .content ul li {
   width: 100%;
@@ -324,22 +227,27 @@ export default {
   background: rgba(251, 251, 251, 0.8);
 }
 
-.content ul li a .goods-foot,
-.goods-topsmall {
+.content ul li a .goods-foot {
   padding: 0 0.05rem;
   display: flex;
   justify-content: space-between;
-  margin-top: 0.2rem;
   font-size: 0.13rem;
+}
+
+.content ul li a .goods-top {
+  padding: 0 0.05rem;
+  justify-content: space-between;
+  margin-top: 0.2rem;
+  font-size: 0.14rem;
 }
 
 .content ul li a .goods-foot div {
   display: flex;
   flex-direction: column;
 }
-.content ul li a .goods-topsmall span {
+.content ul li a .goods-top span {
   color: #fe4070;
-  font-size: 0.13rem;
+  font-size: 0.14rem;
 }
 .content ul li a .goods-foot div span:nth-of-type(1) {
   color: #fe4070;
@@ -357,7 +265,11 @@ export default {
   background: #fe4070;
   color: #fff;
 }
-
+.content .tip {
+  font-size: 0.14rem;
+  width: 100%;
+  color: #999;
+}
 /*  <!-- 内容区结束 --> */
 
 .footer {

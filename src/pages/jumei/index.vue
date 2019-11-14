@@ -124,7 +124,7 @@ components: {
 };
 </script>
 
-<style>
+<style >
 .searchSlider-enter,
 .searchList-leave-to {
   right: -2rem;
