@@ -2,8 +2,8 @@
   <div id="app">
     <router-view>
     </router-view>
-    <!-- <TabBar v-if="$route.meta.flag" /> -->
-    <TabBar />
+    <TabBar v-if="$route.meta.flag" />
+    <!-- <TabBar /> -->
   </div>
 </template>
 
@@ -28,6 +28,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height:100%;
 }
 * {
   margin: 0;

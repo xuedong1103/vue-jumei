@@ -1,11 +1,11 @@
 <template>
   <div class="infantPage">
         <div class="top">
-            <a class="icon_left" href="javascript:void(0)"><img
+            <a class="icon_left" href="javascript:void(0)" @click="handleBack()"><img
                     src="http://a5.jmstatic.com/f8f6fcf77a736300/left_arrow.png"></a>
             <div>母婴</div>
-            <a class="icon_right" href="javascript:void(0)"><img
-                    src="http://a5.jmstatic.com/cf4cd6f2fe742a74/home.png"></a>
+            <router-link  tag="a" to="/index" class="icon_right" href="javascript:void(0)"><img
+                    src="http://a5.jmstatic.com/cf4cd6f2fe742a74/home.png"></router-link>
         </div>
         <div class="search">
             <a class="page_title">
@@ -44,22 +44,9 @@
                 <span>全球热销品牌</span>
             </div>
             <div class="brand">
-                <a href="javascript:void(0)"><img
-                        src="http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1502086238.jpeg?imageView2/2/w/160/q/90" /></a>
-                <a href="javascript:void(0)"><img
-                        src="http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1560910791.jpeg?imageView2/2/w/160/q/90" /></a>
-                <a href="javascript:void(0)"><img
-                        src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1498543566.jpeg?imageView2/2/w/160/q/90" /></a>
-                <a href="javascript:void(0)"><img
-                        src="http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1551235310.jpeg?imageView2/2/w/160/q/90" /></a>
-                <a href="javascript:void(0)"><img
-                        src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548056454.jpeg?imageView2/2/w/160/q/90" /></a>
-                <a href="javascript:void(0)"><img
-                        src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1563960647.jpeg?imageView2/2/w/160/q/90" /></a>
-                <a href="javascript:void(0)"><img
-                        src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055217.png?imageView2/2/w/160/q/90" /></a>
-                <a href="javascript:void(0)"><img
-                        src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055580.jpeg?imageView2/2/w/160/q/90" /></a>
+                <a href="javascript:void(0)" v-for="(img,index) in imgList" :key="index"><img
+                        :src="img" /></a>
+                
             </div>
             <div class="brand_bottom">
                 <a href="javascript:void(0)"><img
@@ -108,24 +95,6 @@
                    <div class="new_img"><img src="http://p0.jmstatic.com/brand/logo_180/21958.jpg"></div>
                </figcaption>
             </div>
-
-            <!-- <div class="list_new">
-                <figure>
-                    <img src="http://mp6.jmstatic.com//jmstore/image/000/008/8553_std/5dbe7cf208fd9_1024_512.jpg?1572832489&imageView2/2/w/640/q/90">
-                </figure>
-                <figcaption>
-                    <div class="new_title">
-                         <h2>澳兰黛品牌专场</h2>
-                         <div class="activity_time">
-                             <span>仅剩</span>
-                             <span>01天</span>
-                             <span>11时</span>
-                             <span>23分</span>
-                         </div>
-                    </div>
-                    <div class="new_img"><img src="http://p0.jmstatic.com/brand/logo_180/21958.jpg"></div>
-                </figcaption>
-             </div> -->
         </section>
   </div>
 </template>
@@ -137,7 +106,16 @@ import {infantApi} from "@api/infant";
 export default {
     data(){
       return {
-        goodsList:[]
+        goodsList:[],
+        imgList:["http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1502086238.jpeg?imageView2/2/w/160/q/90",
+        "http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1560910791.jpeg?imageView2/2/w/160/q/90",
+        "http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1498543566.jpeg?imageView2/2/w/160/q/90",
+        "http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1551235310.jpeg?imageView2/2/w/160/q/90",
+        "http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1563960647.jpeg?imageView2/2/w/160/q/90",
+        "http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055217.png?imageView2/2/w/160/q/90",
+        "http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055580.jpeg?imageView2/2/w/160/q/90",
+        "http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055580.jpeg?imageView2/2/w/160/q/90"
+        ]
       }
     },
     name:"infant",
@@ -145,11 +123,19 @@ export default {
       NavSlider
     },
     async created(){
-    let data =  await infantApi();
-    this.goodsList= data.item_list ;
-    //console.log(data);
-    console.log(this.goodsList);
+      let data =  await infantApi();
+      this.goodsList= data.item_list ;
+    
   },
+  methods:{
+    handleGo(){
+      this.$router.push("/index");
+      console.log(1);
+    },
+    handleBack(){
+      this.$router.back();
+    }
+  }
 };
 </script>
 
@@ -206,10 +192,7 @@ export default {
 
 header {
   height: 0.36rem;
-  -background: green;
-  /* background:#fff;
-            position:sticky;
-            top:0; */
+  
 }
 
  .infantPage header .navList {

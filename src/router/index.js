@@ -5,7 +5,8 @@ import group from "./group"
 import jumei from "./jumei"
 import infant from "./infant"
 import search from "./search"
-
+import login from "./login"
+import list from "./list"
 Vue.use(VueRouter);
 
 const router=new VueRouter({
@@ -28,7 +29,19 @@ const router=new VueRouter({
             component:_=>import("@pages/mine")
         },
         infant,
-        search
+        search,
+        login,
+        {
+            path:"/register",
+            name:"register",
+            component:_=>import("@pages/register"),
+            meta:{
+                flag:false,
+                requiredAuth:false
+            }
+
+        },
+        list
     ]
 });
 
