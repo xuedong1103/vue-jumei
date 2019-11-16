@@ -116,7 +116,7 @@ export default {
   
 async created(){
     let data =  await jumeiindexApi();
-       console.log(data,'index');
+    //    console.log(data,'index');
   },
     
 components: {

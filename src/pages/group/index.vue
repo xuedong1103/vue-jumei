@@ -107,11 +107,6 @@
 import { goodsApi } from "@api/group";
 export default {
   name: "Group",
-<<<<<<< HEAD
-  async created(){
-    let data = await goodsApi();
-    console.log(data,'group');
-=======
   data() {
     return {
       goodslist: []
@@ -125,9 +120,8 @@ export default {
     async handleGetGoodsList() {
       let data = await goodsApi();
       this.goodslist = data.data;
-      console.log(this.goodslist);
+     
     }
->>>>>>> 9f93743fefbd5d5e5f9036042e588472e88d1584
   }
 };
 </script>

@@ -8,7 +8,7 @@
         <input type="text" class="searchBox" placeholder="搜索商品的名称、品牌、功效" />
         <!-- <v-touch tag="span" @tap="handleSlider()">搜索</v-touch> -->
         <span>
-          <a  @click="handleSlider" tag="a">分类</a>
+          <a @click="handleSlider" tag="a">分类</a>
         </span>
       </div>
     </div>
@@ -55,13 +55,24 @@
         class="searchList"
       >
         <van-collapse v-model="activeNames">
-          <van-collapse-item  v-for="(item,index) in option" :key="index" :title="item.title"  :name="index" class="firstClass">
-              <li class="goodsItem">
-                <ul class="secondClass">
-                  <li v-for="(item,index) in item.listItem" :key="index" @click="hanldeList(index)">{{item}}</li>
-                 
-                </ul>
-              </li>
+          <van-collapse-item
+            v-for="(item,index) in option"
+            :key="index"
+            :title="item.title"
+            :name="index"
+            class="firstClass"
+          >
+            <li class="goodsItem">
+              <ul class="secondClass">
+                <router-link
+                  v-for="(list,index) in item.listItem"
+                  :key="index"
+                  @click="hanldeList(index)"
+                  tag="li"
+                  :to="'/search/list/'+list.category_id+'/2'"
+                >{{list.title}}</router-link>
+              </ul>
+            </li>
           </van-collapse-item>
         </van-collapse>
       </van-popup>
@@ -75,8 +86,59 @@ export default {
     return {
       show: true,
       activeNames: ["1"],
-      option:[
-       {title:"面部",listItem:["眼部护理","化妆水/爽肤水","眼部护理","眼部护理","眼部护理","眼部护理","眼部护理"]},{title:"面部",listItem:["眼部护理","眼部护理","眼部护理","眼部护理","眼部护理","眼部护理","眼部护理"]}
+      option: [
+        {
+          title: "面部护肤",
+          listItem: [
+            { title: "眼部护理", category_id: 62 },
+            { title: "化妆水/爽肤水", category_id: 10 },
+            { title: "啫哩/凝露/凝胶", category_id: 81 },
+            { title: "精华", category_id: 17 },
+            { title: "面霜", category_id: 16 },
+            { title: "唇部护理", category_id: 83 },
+            { title: "洁面", category_id: 19 },
+            { title: "T区/特殊护理", category_id: 338 },
+            { title: "面膜", category_id: 14 },
+            { title: "乳液", category_id: 9 },
+            { title: "精油", category_id: 197 },
+            { title: "护肤套装", category_id: 23 }
+          ]
+        },
+        {
+          title: "彩妆",
+          listItem: [
+            { title: "眼部", category_id: 386 },
+            { title: "粉饼/散粉", category_id: 383},
+            { title: "唇部", category_id: 388 },
+            { title: "睫毛", category_id: 387 },
+            { title: "眉部", category_id: 384 },
+            { title: "美甲", category_id: 389 },
+            { title: "隔离", category_id: 55 },
+            { title: "底妆", category_id: 38 },
+            { title: "遮瑕/修容", category_id: 143 },
+            { title: "防晒", category_id: 33 },
+            { title: "卸妆", category_id: 18 },
+            { title: "腮红", category_id: 8 },
+            { title: "彩妆套装", category_id: 37 },
+          ]
+        },
+        {
+          title: "身体护理",
+          listItem: [
+            { title: "个人护理", category_id: 198 },
+            { title: "润肤", category_id: 57 },
+            { title: "润肤乳", category_id: 22 },
+            { title: "纤体/美体", category_id: 280 },
+            { title: "手足护理", category_id: 65 },
+            { title: "护发", category_id: 54 },
+            { title: "沐浴", category_id: 122 },
+            { title: "洗发", category_id: 395 },
+            { title: "美发造型", category_id: 94 },
+            { title: "口腔护理", category_id: 151 },
+            { title: "颈部护理", category_id: 13 },
+           
+          ]
+        }
       ]
     };
   },
@@ -87,16 +149,13 @@ export default {
     // },
     handleSlider() {
       this.show = true;
-
     },
-    handleIndex(){
+    handleIndex() {
       this.$router.push("/index");
-      console.log(1);
-    },
-    hanldeList(index){
       
-    }
-  },
+    },
+    hanldeList(index) {}
+  }
   // async created(){
   //     let data = await SearchApi()
   //     console.log(data);
@@ -126,7 +185,7 @@ export default {
 .searchgroup .searchBack {
   width: 0.6rem;
   position: relative;
-  z-index:1;
+  z-index: 1;
 }
 .searchgroup .searchBack img {
   width: 0.075rem;
@@ -185,12 +244,12 @@ export default {
 }
 
 .searchList .firstClass {
- text-align:left;
- font-size:0.14rem;
- color:#666;
+  text-align: left;
+  font-size: 0.14rem;
+  color: #666;
 }
 .searchList .van-collapse-item__content {
-  padding:0;
+  padding: 0;
 }
 .searchList .goodsItem .secondClass {
   display: flex;

@@ -130,7 +130,7 @@ export default {
   methods:{
     handleGo(){
       this.$router.push("/index");
-      console.log(1);
+      
     },
     handleBack(){
       this.$router.back();

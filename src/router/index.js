@@ -4,18 +4,14 @@ import cart from "./cart";
 import group from "./group"
 import jumei from "./jumei"
 import infant from "./infant"
-<<<<<<< HEAD
-import search from "./search"
-<<<<<<< HEAD
 
-=======
+import search from "./search"
 import Detail from "./detail"
-// import search from "./search"
->>>>>>> 9f93743fefbd5d5e5f9036042e588472e88d1584
-=======
 import login from "./login"
 import list from "./list"
->>>>>>> xuedong
+import searchlist from "./searchlist"
+
+
 Vue.use(VueRouter);
 
 const router=new VueRouter({
@@ -59,7 +55,9 @@ const router=new VueRouter({
             }
 
         },
-        list
+        list,
+        searchlist,
+        // searchClassify
     ]
 });
 
