@@ -1,19 +1,12 @@
 import http from "@utils/request";
 
 export const goodsApi = ()=>http({
-<<<<<<< HEAD
-    methods:"get",
-    url:"/api/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20",
-    data:{
-       
-    }
-=======
+
     method:"get",
     url:"api/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20",
     // data:{
     //     page:page
     // }
->>>>>>> 9f93743fefbd5d5e5f9036042e588472e88d1584
 })
     
 

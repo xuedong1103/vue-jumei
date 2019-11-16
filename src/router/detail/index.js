@@ -3,7 +3,7 @@ export default {
     component: _ => import("@components/detail"),
     name: "detail",
     meta: {
-      flag: true,
+      flag: false,
       requiredAuth: false
     },
     props:true

@@ -12,32 +12,11 @@ const state={
           goodIntroduce: "5ml*1",
           goodPrice: 59.9,
           goodNum: 1,
+          goodimg:"https://img.yzcdn.cn/vant/t-thirt.jpg",
           check:false
         },
-        {
-            id:2,
-          goodName: "【国内专柜秒发】美国•雅诗兰黛 新多效智妍眼霜5ml",
-          goodIntroduce: "5ml*1",
-          goodPrice: 59.9,
-          goodNum: 2,
-          check:false
-        },
-        {
-            id:3,
-          goodName: "【国内专柜秒发】美国•雅诗兰黛 新多效智妍眼霜5ml",
-          goodIntroduce: "5ml*1",
-          goodPrice: 59.9,
-          goodNum: 3,
-          check:false
-        },
-        {
-            id:4,
-          goodName: "【国内专柜秒发】美国•雅诗兰黛 新多效智妍眼霜5ml",
-          goodIntroduce: "5ml*1",
-          goodPrice: 59.9,
-          goodNum: 4,
-          check:false
-        }
+       
+       
       ],
      
 }
@@ -53,6 +32,12 @@ const actions={
     },
     handleActionAllCheck({commit},params){
       commit("handleMutationAllCheck",params);
+    },
+    handleactionNum({commit},params){
+      commit("handleactionNum",params);
+    },
+    handlePush({commit},params){
+      commit("handleMutationPush",params)
     }
 }
 const mutations={
@@ -78,6 +63,27 @@ const mutations={
           }
             state.goodsList[i].check=params;
         }
+    },
+    handleactionNum(state,params){
+      state.goodsList[params].goodNum++;
+    },
+    handleMutationPush(state,params){
+     var flag=0;
+     let index='';
+      for(var i=0;i<state.goodsList.length;i++){
+        if(params.id==state.goodsList[i].id){
+          flag=1;
+          index=i
+          break;
+        }
+      }
+      if(flag==0){
+        state.goodsList.push(params);
+      }else{
+          state.goodsList[index].goodNum+=params.goodNum;
+      }
+      //console.log(state.goodsList,'goodsList')
+     
     }
 }
 

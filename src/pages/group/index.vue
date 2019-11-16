@@ -79,6 +79,7 @@
         </router-link>
       </ul>
       <div class="tip">已到当前页面最底部，看看其他页面吧~</div>
+      <div>接受详情页的值{{info}}</div>
     </div>
     <!-- 内容区结束 -->
     <!-- 底部开始 -->
@@ -107,27 +108,27 @@
 import { goodsApi } from "@api/group";
 export default {
   name: "Group",
-<<<<<<< HEAD
-  async created(){
-    let data = await goodsApi();
-    console.log(data,'group');
-=======
+
   data() {
     return {
-      goodslist: []
+      goodslist: [],
+      info:''
     };
   },
   created() {
     this.handleGetGoodsList();
-    
+    this.$observer.$on("tranList",(params)=>{
+      this.info = params;
+      //console.log(this.info);
+      
+    })          
   },
   methods: {
     async handleGetGoodsList() {
       let data = await goodsApi();
       this.goodslist = data.data;
-      console.log(this.goodslist);
+      //console.log(this.goodslist);
     }
->>>>>>> 9f93743fefbd5d5e5f9036042e588472e88d1584
   }
 };
 </script>

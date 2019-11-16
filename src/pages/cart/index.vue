@@ -19,7 +19,7 @@
                 :price="item.goodPrice"
                 :desc="item.goodIntroduce"
                 :title="item.goodName"
-                thumb="https://img.yzcdn.cn/vant/t-thirt.jpg"
+                :thumb="item.goodimg"
               >
                 <div slot="tags">
                   <van-tag plain type="danger">正品</van-tag>
