@@ -12,9 +12,14 @@ const state={
           goodIntroduce: "5ml*1",
           goodPrice: 59.9,
           goodNum: 1,
+          goodimg:"https://img.yzcdn.cn/vant/t-thirt.jpg",
           check:false
         },
        
+<<<<<<< HEAD
+=======
+       
+>>>>>>> a1c1ef40f625183b46795edbb1e0105a1d6dc96f
       ],
      
 }
@@ -30,6 +35,12 @@ const actions={
     },
     handleActionAllCheck({commit},params){
       commit("handleMutationAllCheck",params);
+    },
+    handleactionNum({commit},params){
+      commit("handleactionNum",params);
+    },
+    handlePush({commit},params){
+      commit("handleMutationPush",params)
     }
 }
 const mutations={
@@ -55,6 +66,27 @@ const mutations={
           }
             state.goodsList[i].check=params;
         }
+    },
+    handleactionNum(state,params){
+      state.goodsList[params].goodNum++;
+    },
+    handleMutationPush(state,params){
+     var flag=0;
+     let index='';
+      for(var i=0;i<state.goodsList.length;i++){
+        if(params.id==state.goodsList[i].id){
+          flag=1;
+          index=i
+          break;
+        }
+      }
+      if(flag==0){
+        state.goodsList.push(params);
+      }else{
+          state.goodsList[index].goodNum+=params.goodNum;
+      }
+      //console.log(state.goodsList,'goodsList')
+     
     }
 }
 

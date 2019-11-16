@@ -25,14 +25,6 @@ const router=new VueRouter({
         group,
         cart,
         Detail,
-        // {
-        //     path:"/detail/:item_id/:medium_name/:buyer_number_text/:group_name_tag/:jumei_price/:single_price",
-        //     name:"detail",
-        //     // props:true,
-        //     component:Detail
-
-
-        // },
         {
             path:"/mine",
             name:"mine",

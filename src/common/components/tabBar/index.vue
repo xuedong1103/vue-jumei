@@ -38,25 +38,25 @@ export default {
           id:0,
           title:"首页",
           img:"http://p12.jmstatic.com/mcms/89ea87200c623f4c7809f21f2ab4bce8.png",
-          path: "/index"
+          path: "/index",
         },
         {
           id:1,
           title:"拼团",
           img:"http://p12.jmstatic.com/mcms/b51a66ca3ddb31ec0edbd67ea68f7589.png",
-          path: "/group" //详情页测试
+          path: "/group", //详情页测试
         },
         {
           id:2,
           title:"购物车",
           img:"http://p12.jmstatic.com/mcms/77b9454e8dd41a060510a445010ac934.png",
-          path: "/cart"
+          path: "/cart",
         },
         {
           id:3,
           title:"我的",
           img:"http://p12.jmstatic.com/mcms/829aa091062366a9f7b93cfffaa0e681.png",
-          path: "/mine"
+          path: "/mine",
         }
       ]
     };

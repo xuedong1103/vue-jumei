@@ -79,6 +79,7 @@
         </router-link>
       </ul>
       <div class="tip">已到当前页面最底部，看看其他页面吧~</div>
+      <div>接受详情页的值{{info}}</div>
     </div>
     <!-- 内容区结束 -->
     <!-- 底部开始 -->
@@ -109,18 +110,27 @@ export default {
   name: "Group",
   data() {
     return {
-      goodslist: []
+      goodslist: [],
+      info:''
     };
   },
   created() {
     this.handleGetGoodsList();
-    
+    this.$observer.$on("tranList",(params)=>{
+      this.info = params;
+      //console.log(this.info);
+      
+    })          
   },
   methods: {
     async handleGetGoodsList() {
       let data = await goodsApi();
       this.goodslist = data.data;
+<<<<<<< HEAD
+      //console.log(this.goodslist);
+=======
      
+>>>>>>> 5b3432548c0a6fb79a3ce6fb303f3511bea06e62
     }
   }
 };
