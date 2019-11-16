@@ -6,12 +6,11 @@ import jumei from "./jumei"
 import infant from "./infant"
 
 import search from "./search"
-
 import Detail from "./detail"
-// import search from "./search"
-
 import login from "./login"
 import list from "./list"
+import searchlist from "./searchlist"
+
 
 Vue.use(VueRouter);
 
@@ -48,7 +47,9 @@ const router=new VueRouter({
             }
 
         },
-        list
+        list,
+        searchlist,
+        // searchClassify
     ]
 });
 

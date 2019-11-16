@@ -55,6 +55,11 @@ Vue.use(SubmitBar);
 import { Lazyload } from 'vant';
 Vue.use(Lazyload);
 
+/**下拉刷新 */
+import { PullRefresh } from 'vant';
+Vue.use(PullRefresh);
+
+
 
 import { Popup } from 'vant';
 Vue.use(Popup);

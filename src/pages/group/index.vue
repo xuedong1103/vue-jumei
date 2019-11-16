@@ -108,7 +108,6 @@
 import { goodsApi } from "@api/group";
 export default {
   name: "Group",
-
   data() {
     return {
       goodslist: [],
