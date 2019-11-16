@@ -126,7 +126,11 @@ export default {
     async handleGetGoodsList() {
       let data = await goodsApi();
       this.goodslist = data.data;
+<<<<<<< HEAD
       //console.log(this.goodslist);
+=======
+     
+>>>>>>> 5b3432548c0a6fb79a3ce6fb303f3511bea06e62
     }
   }
 };
