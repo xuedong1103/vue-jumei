@@ -10,7 +10,7 @@ import Detail from "./detail"
 import login from "./login"
 import list from "./list"
 import searchlist from "./searchlist"
-
+import listsearch from "./listsearch"
 
 Vue.use(VueRouter);
 
@@ -57,6 +57,7 @@ const router=new VueRouter({
         },
         list,
         searchlist,
+        listsearch
         // searchClassify
     ]
 });

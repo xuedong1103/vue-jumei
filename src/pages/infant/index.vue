@@ -86,10 +86,15 @@
                    <div class="new_title">
                         <h2>{{item.title}}</h2>
                         <div class="activity_time">
-                            <span>仅剩</span>
+                            <!-- <span>仅剩</span>
                             <span>01天</span>
                             <span>11时</span>
-                            <span>23分</span>
+                            <span>23分</span> -->
+                            <van-count-down
+                              :time="Number(item.end_time)"
+                              format="DD 天 HH 时 mm 分 ss 秒"
+                            />
+                            
                         </div>
                    </div>
                    <div class="new_img"><img src="http://p0.jmstatic.com/brand/logo_180/21958.jpg"></div>
@@ -115,7 +120,8 @@ export default {
         "http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055217.png?imageView2/2/w/160/q/90",
         "http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055580.jpeg?imageView2/2/w/160/q/90",
         "http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055580.jpeg?imageView2/2/w/160/q/90"
-        ]
+        ],
+        //  time:1574647199
       }
     },
     name:"infant",
@@ -125,7 +131,7 @@ export default {
     async created(){
       let data =  await infantApi();
       this.goodsList= data.item_list ;
-    
+     
   },
   methods:{
     handleGo(){

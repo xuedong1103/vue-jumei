@@ -14,30 +14,7 @@ const state={
           goodNum: 1,
           check:false
         },
-        {
-            id:2,
-          goodName: "【国内专柜秒发】美国•雅诗兰黛 新多效智妍眼霜5ml",
-          goodIntroduce: "5ml*1",
-          goodPrice: 59.9,
-          goodNum: 2,
-          check:false
-        },
-        {
-            id:3,
-          goodName: "【国内专柜秒发】美国•雅诗兰黛 新多效智妍眼霜5ml",
-          goodIntroduce: "5ml*1",
-          goodPrice: 59.9,
-          goodNum: 3,
-          check:false
-        },
-        {
-            id:4,
-          goodName: "【国内专柜秒发】美国•雅诗兰黛 新多效智妍眼霜5ml",
-          goodIntroduce: "5ml*1",
-          goodPrice: 59.9,
-          goodNum: 4,
-          check:false
-        }
+       
       ],
      
 }

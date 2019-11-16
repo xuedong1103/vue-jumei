@@ -159,7 +159,7 @@ export default {
                 { text: '眼部护理', value: 62 },
                 { text: '卸妆', value: 18 },
                 { text: '精华', value: 17 },
-                { text: '粉底/散粉', value: 383 },
+                { text: '粉底散粉', value: 383 },
                 { text: '防晒', value: 33 },
                 { text: '面霜', value: 16 },
                 { text: '妈妈美容', value: 1674 },
@@ -225,7 +225,7 @@ export default {
             this.$router.push("/index");
         },
         handleChange(e,params){
-
+            
             if(e.target.tagName=="SPAN"){
                 this.handleSearch(eval(e.target).innerText,params)
                 //console.log(eval(e.target).innerText);
@@ -240,7 +240,7 @@ export default {
             let category_id=this.$route.params.category_id;
             let category_name=this.$route.params.category_name;
             let page=this.$route.params.page;
-            console.log(this.$route);
+            //console.log(this.$route);
             let data = await BrandApi(brand_id,brand_name,page,category_id,category_name); 
             this.searchList=[];
             this.searchList.push(data.data.item_list);
@@ -266,7 +266,7 @@ export default {
                     if(this.optionBrand[i].text==Name){
                          this.brand_id=this.optionBrand[i].value;
                          this.brand_name=this.optionBrand[i].text;
-                         console.log(this.brand_id,this.brand_name);
+                         //console.log(this.brand_id,this.brand_name);
                         break;
                     }
                 }
@@ -275,7 +275,7 @@ export default {
                     if(this.optionClassify[i].text==Name){
                          this.category_id=this.optionClassify[i].value;
                          this.category_name=this.optionClassify[i].text;
-                         console.log(this.category_id,this.category_name);
+                         //console.log(this.category_id,this.category_name);
                         
                         break;
                     }
