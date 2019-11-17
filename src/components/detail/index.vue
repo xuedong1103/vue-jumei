@@ -322,7 +322,6 @@ export default {
     this.img = this.list.size[0].img;
     this.dis = this.list.share_info[1].text;
 
-   
   }
 };
 </script>

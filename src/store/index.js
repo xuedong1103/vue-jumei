@@ -16,12 +16,8 @@ const state={
           check:false
         },
        
-<<<<<<< HEAD
-=======
-       
->>>>>>> a1c1ef40f625183b46795edbb1e0105a1d6dc96f
       ],
-     
+     add:"coutuan_makeup"
 }
 const actions={
     handleactionAdd({commit},params){
@@ -41,6 +37,9 @@ const actions={
     },
     handlePush({commit},params){
       commit("handleMutationPush",params)
+    },
+    postparmas({commit},params){
+      commit("getparmas",params)
     }
 }
 const mutations={
@@ -87,6 +86,10 @@ const mutations={
       }
       //console.log(state.goodsList,'goodsList')
      
+    },
+    getparmas(state,params){
+      state.add=params
+      console.log(params)
     }
 }
 

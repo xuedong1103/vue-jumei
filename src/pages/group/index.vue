@@ -1,54 +1,17 @@
 <template>
   <div class="pintuan page">
     <!-- 头部开始 -->
-    <div class="header">
-      <ul>
-        <li>
-          <a href>推荐</a>
-        </li>
-        <li>
-          <a href>美妆</a>
-        </li>
-        <li>
-          <a href>母婴健康</a>
-        </li>
-        <li>
-          <a href>食品保健</a>
-        </li>
-        <li>
-          <a href>内衣</a>
-        </li>
-        <li>
-          <a href>家居</a>
-        </li>
-        <li>
-          <a href>饰品配饰</a>
-        </li>
-        <li>
-          <a href>数码家电</a>
-        </li>
-        <li>
-          <a href>女装</a>
-        </li>
-        <li>
-          <a href>礼品箱包</a>
-        </li>
-        <li>
-          <a href>鞋类</a>
-        </li>
-        <li>
-          <a href>运动户外</a>
-        </li>
-        <li>
-          <a href>下期预告</a>
-        </li>
-      </ul>
-    </div>
+    <!-- <div class="header"> -->
+      <!-- <ul> -->
+        <!-- nav 组件部分 -->
+        <GroupnavSlider/>
+      <!-- </ul> -->
+    <!-- </div> -->
     <!-- 头部结束 -->
 
     <!-- 内容区开始 -->
     <div class="content">
-      <ul>
+      <ul @handlepost= click>
         <router-link
           tag="li"
           :to="'/detail/'+item.item_id"
@@ -105,35 +68,49 @@
 </template>
 
 <script>
+import GroupnavSlider from "@common/components/groupHeader";
 import { goodsApi } from "@api/group";
 export default {
-  name: "Group",
+  name: "Group",              
+  props:["name"],
+  components:{
+    GroupnavSlider
+  },
   data() {
     return {
       goodslist: [],
-      info:''
+      info:'',
     };
   },
-  created() {
+  mounted() {
     this.handleGetGoodsList();
-    this.$observer.$on("tranList",(params)=>{
-      this.info = params;
-      //console.log(this.info);
-      
-    })          
+         
   },
   methods: {
     async handleGetGoodsList() {
-      let data = await goodsApi();
+    
+      let data = await goodsApi(this.$store.state.add);
       this.goodslist = data.data;
-<<<<<<< HEAD
+
       //console.log(this.goodslist);
-=======
-     
->>>>>>> 5b3432548c0a6fb79a3ce6fb303f3511bea06e62
+
+      console.log(this.goodslist);
+      console.log(data);
+      // (function handlepost(params){
+      //   console.log(params)
+      // }());
+      
+    },
+    click:function (params){
+      console.log(params);
+      this.info = params
+
     }
+
+
   }
 };
+
 </script>
 
 <style>
@@ -144,45 +121,6 @@ export default {
   flex-direction: column;
   overflow-x: auto;
   position: relative;
-}
-.header {
-  width: 100%;
-  height: 0.5rem;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* font-size: .14rem; */
-  left: 0;
-  top: 0;
-  position: absolute;
-  z-index: 10;
-  overflow: hidden;
-}
-
-.header ul {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-}
-
-.header ul li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 0 0.1rem;
-}
-.header ul li a {
-  /* border-bottom: 2px solid #fe4070; */
-  padding: 0.16rem 0;
-  font-size: 0.15rem;
-  font-weight: 500;
 }
 
 /*  <!-- 内容区结束 --> */

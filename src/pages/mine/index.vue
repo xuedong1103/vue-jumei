@@ -1,6 +1,6 @@
 <template>
   <div class="minePage">
-      <!-- <div class="noLogin">
+      <div class="noLogin">
         <img
           class="head_left"
           src="https://f2.jmstatic.com/static_account/dist/v1.0.164687/images/mobile_usercenter/back_white_bg.png"
@@ -17,8 +17,8 @@
           <span class="line">|</span>
           <router-link class="todo_login" to="/login"  tag="span"> 登录</router-link>
         </div>
-      </div> -->
-       <div class="loginMine">
+      </div>
+       <!-- <div class="loginMine">
             <img class="head_left"
                 src="https://f2.jmstatic.com/static_account/dist/v1.0.164687/images/mobile_usercenter/back_white_bg.png" />
             <div class="title">我的聚美</div>
@@ -45,7 +45,7 @@
                 <img class="pic" src="http://p0.jmstatic.com/jmstore/user/icon/cat_200_200.png?1573393879">
             </div>
 
-        </div>
+        </div> -->
       <BeforeMine/>
    
   </div>

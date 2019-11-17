@@ -1,22 +1,14 @@
 import http from "@utils/request";
 
-export const goodsApi = ()=>http({
+export const goodsApi = (name)=>http({
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5b3432548c0a6fb79a3ce6fb303f3511bea06e62
     method:"get",
-    url:"api/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20",
+    url:"api/yiqituan/tab_list?tab="+name+"&page=1&per_page=20",
     // data:{
     //     page:page
     // }
-<<<<<<< HEAD
-=======
-
->>>>>>> 5b3432548c0a6fb79a3ce6fb303f3511bea06e62
 })
-    
+// http://m.jumei.com/yiqituan/tab_list?tab=coutuan_makeup&page=1&per_page=20
 
 //详情页接口
 export const goodsDetialApi= (id)=>http({
